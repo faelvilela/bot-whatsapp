@@ -24,83 +24,63 @@ async function startSession1(client) {
     let linhasNum = contatosTxt.split('\n'); //separando por espaco
     let numerosEsquerdaBarra = []; //iniciando vetor de numeros na esquerda da / no txt
 
+    let linhasPdf = contatosTxt.split('\n'); //separando por espaco
+    let vetorLinhadigitavel = []; //iniciando vetor de numeros na direita da / no txt
+
+    let linhasNome = contatosTxt.split('\n');
+    let vetorNomes = [];
+
+    let linhasValor = contatosTxt.split('\n');
+    let vetorValores = [];
+
+    let linhasValorTotal = contatosTxt.split('\n');
+    let vetorValoresTotal = [];
+
+    let linhasCpf = contatosTxt.split('\n');
+    let vetorCpf = [];
+
+    let linhasContrato = contatosTxt.split('\n');
+    let vetorContrato = [];
+
+    let linhasProduto = contatosTxt.split('\n');
+    let vetorProduto = [];
+
     for (let i = 0; i < linhasNum.length; i++) {
         // preenchendo vetor de numeros EX: ['5531989293584', '5531983375591']
         let linha = linhasNum[i];
         let numeros = linha.split(',')[0];
         numerosEsquerdaBarra.push(numeros);
+
+        let linhaProduto = linhasProduto[i];
+        let numerosProduto = linhaProduto.split(',')[8];
+        vetorProduto.push(numerosProduto);
+
+        let linhaContrato = linhasContrato[i];
+        let numerosContrato = linhaContrato.split(',')[6];
+        vetorContrato.push(numerosContrato);
+
+        let linhaCpf = linhasCpf[i];
+        let numerosCpf = linhaCpf.split(',')[5];
+        vetorCpf.push(numerosCpf);
+
+        let linhaValorTotal = linhasValorTotal[i];
+        let numerosValorTotal = linhaValorTotal.split(',')[2];
+        vetorValoresTotal.push(numerosValorTotal);
+
+        let linhaValor = linhasValor[i];
+        let numerosValor = linhaValor.split(',')[3];
+        vetorValores.push(numerosValor);
+
+        let linhaNome = linhasNome[i];
+        let numerosNome = linhaNome.split(',')[1];
+        vetorNomes.push(numerosNome);
+
+        let linhaPdf = linhasPdf[i];
+        let numerosPdf = linhaPdf.split(',')[4];
+        vetorLinhadigitavel.push(numerosPdf);
+
     }
     const listaContatos = numerosEsquerdaBarra.map(num => `${num}@c.us`); //concatenando @c.us no fim de cada numero
-    //--------------------------------LINHA DIGITAVEL-------------------------------------
-
-    let linhasPdf = contatosTxt.split('\n'); //separando por espaco
-    let vetorLinhadigitavel = []; //iniciando vetor de numeros na direita da / no txt
-
-    for (let i = 0; i < linhasPdf.length; i++) {
-        // preenchendo vetor de numeros EX: ['23793.39407 60001.479652 16000.196408 3 93560000058256', '23793.39407 60001.479652 16000.196408 3 93560000058257']
-        let linha = linhasPdf[i];
-        let numeros = linha.split(',')[4];
-        vetorLinhadigitavel.push(numeros);
-    }
-    //-----------------------NOME CLIENTE--------------------------------------
-
-    let linhasNome = contatosTxt.split('\n');
-    let vetorNomes = [];
-
-    for (let i = 0; i < linhasNome.length; i++) {
-        let linha = linhasNome[i];
-        let numeros = linha.split(',')[1];
-        vetorNomes.push(numeros);
-    }
-    //----------------------VALOR BOLETO------------------------------------
-    let linhasValor = contatosTxt.split('\n');
-    let vetorValores = [];
-
-    for (let i = 0; i < linhasValor.length; i++) {
-        let linha = linhasValor[i];
-        let numeros = linha.split(',')[3];
-        vetorValores.push(numeros);
-    }
-
-    //-----------------------VALOR TOTAL---------------------------------------
-    let linhasValorTotal = contatosTxt.split('\n');
-    let vetorValoresTotal = [];
-
-    for (let i = 0; i < linhasValorTotal.length; i++) {
-        let linha = linhasValorTotal[i];
-        let numeros = linha.split(',')[2];
-        vetorValoresTotal.push(numeros);
-    }
-
-    //-----------------------------CPF---------------------------------------
-    let linhasCpf = contatosTxt.split('\n');
-    let vetorCpf = [];
-
-    for (let i = 0; i < linhasCpf.length; i++) {
-        let linha = linhasCpf[i];
-        let numeros = linha.split(',')[5];
-        vetorCpf.push(numeros);
-    }
-
-    //----------------------------CONTRATO-----------------------------------------
-    let linhasContrato = contatosTxt.split('\n');
-    let vetorContrato = [];
-
-    for (let i = 0; i < linhasContrato.length; i++) {
-        let linha = linhasContrato[i];
-        let numeros = linha.split(',')[6];
-        vetorContrato.push(numeros);
-    }
-
-    //----------------------------PRODUTO-----------------------------------------
-    let linhasProduto = contatosTxt.split('\n');
-    let vetorProduto = [];
-
-    for (let i = 0; i < linhasProduto.length; i++) {
-        let linha = linhasProduto[i];
-        let numeros = linha.split(',')[8];
-        vetorProduto.push(numeros);
-    }
 
     //------------------------------------/FIM/--------------------------------
 
